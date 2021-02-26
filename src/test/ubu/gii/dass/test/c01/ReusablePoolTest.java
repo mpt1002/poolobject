@@ -9,17 +9,23 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import junit.framework.Assert;
+import ubu.gii.dass.c01.ReusablePool;
+
 /**
  * @author alumno
  *
  */
 public class ReusablePoolTest {
+	
+	ReusablePool pool;
 
 	/**
 	 * @throws java.lang.Exception
 	 */
 	@Before
 	public void setUp() throws Exception {
+		pool = ReusablePool.getInstance();
 	}
 
 	/**
@@ -27,6 +33,7 @@ public class ReusablePoolTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
+		pool = null;
 	}
 
 	/**
@@ -34,7 +41,8 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
-		fail("Not yet implemented");
+		Assert.assertNotNull(pool);
+		Assert.assertEquals(pool, ReusablePool.getInstance());
 	}
 
 	/**

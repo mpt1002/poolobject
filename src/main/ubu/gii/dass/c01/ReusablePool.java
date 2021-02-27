@@ -60,4 +60,12 @@ public final class ReusablePool{
 			throw(new DuplicatedInstanceException());
 		}
 	}
+	
+	/**
+	 * Obtener el tamaño del vector reusable
+	 * @return tamaño del vector
+	 */
+	public int size() {
+		return reusables.size();
+	}
 } 

@@ -10,6 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import junit.framework.Assert;
+import ubu.gii.dass.c01.DuplicatedInstanceException;
+import ubu.gii.dass.c01.NotFreeInstanceException;
+import ubu.gii.dass.c01.Reusable;
 import ubu.gii.dass.c01.ReusablePool;
 
 /**
@@ -50,7 +53,19 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testAcquireReusable() {
-		fail("Not yet implemented");
+		Assert.assertNotNull(pool);
+		try {
+			Assert.assertEquals(2, pool.size());
+			Assert.assertNotNull(pool.acquireReusable());
+			Assert.assertEquals(1, pool.size());
+			Assert.assertNotNull(pool.acquireReusable());
+			Assert.assertEquals(0, pool.size());
+			// Solo hay 2 instancias, por lo tanto en la tercera salta la excepción.
+			pool.acquireReusable();
+		} catch (NotFreeInstanceException e) {
+			Assert.assertEquals("No hay más instancias reutilizables disponibles. Reintentalo más tarde", e.getMessage());
+		}
+		
 	}
 
 	/**
@@ -60,5 +75,4 @@ public class ReusablePoolTest {
 	public void testReleaseReusable() {
 		fail("Not yet implemented");
 	}
-
 }

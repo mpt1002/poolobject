@@ -73,6 +73,19 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testReleaseReusable() {
-		fail("Not yet implemented");
+		try {
+			Assert.assertNotNull(pool);
+			Assert.assertEquals(2, pool.size());
+			Reusable r = pool.acquireReusable();
+			Assert.assertEquals(1, pool.size());
+			pool.releaseReusable(r);
+			Assert.assertEquals(2, pool.size());
+			// Volver a meter el mismo reusable, debe saltar excepcion
+			pool.releaseReusable(r);
+		} catch (NotFreeInstanceException e) {
+		} catch (DuplicatedInstanceException e) {
+			Assert.assertEquals("Ya existe esa instancia en el pool.", e.getMessage());
+		}
 	}
+
 }

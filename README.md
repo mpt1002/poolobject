@@ -42,8 +42,12 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 1. ¿Se ha realizado trabajo en equipo?
    - Si.
 2. ¿Tiene calidad el conjunto de pruebas disponibles?
-   - Si, ya que se obtiene una covertura de 100%.
+   - Se obtiene una covertura del 100% para el fichero ReusablePool.java. En consecuencia, todas las clases utilizadas en los test de ReusablePool tienen una cierta covertura en la misma proporción en la que participan en los test. Es por esto que, por ejemplo, las excepciones DuplicateIntanceException y NotFreeInstanceException tienen una covertura del 100%, pues se tratan de manera indirecta en el test, mientras que la clase Client tiene una covertura del 0%, pues no aparece en el test.
 3. ¿Cuál es el esfuerzo invertido en realizar la actividad?
+   - Revisión del código del que se parte llevó 10 minutos.
+   - Método setup del test ReusablePoolTest llevó 5 minutos.
+   - Método tearDown del test ReusablePoolTest llevó 5 minutos.
+   - Método testGetInstance del test ReusablePoolTest llevó 10 minutos.
 4. ¿Cuál es el número de fallos encontrados en el código?
 
 ## Enlaces

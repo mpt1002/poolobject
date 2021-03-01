@@ -36,6 +36,46 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 
 ![AltText](pics/coverage_27_02_2021.png "Covertura de las pruebas")
 
+## Especificación textual de la prueba commit
+
+| Test Method | Descripción | Entrada | Salida Esperada |
+| :---:| :---: | :---:| :---: |
+| setUp() | Estado inicial de los métodos a probar | - | - |
+| tearDown() | Estado final de los métodos a probar| - | - |
+|testGetInstance() | Determinar si se crea correctamente una instancia de un objeto Pool| - | - |
+|testAcquireReusable() | Comprobar que se obtiene una instancia de ReusablePool si se encuentra disponible, en caso contrario comprobar que se lanza la excepción| - | - |
+|testReleaseReusable() | Determinar si se libera correctamente una instancia Reusable y se añade al Pool, siempre y cuando esta no esté ya añadida, en este caso se comprueba que se lanza una excepción.| - | - |
+|
+
+### Especificación paso a paso de la prueba commit
+
+#### testAcquireReusable()
+
+| Paso | Descripción | Salida Esperada | Salida Actual |
+| :---: | :---: | :---: | :---: |
+| 1 |  Comprobar que el Pool no es nulo | True | True |
+| 2 | Comprobar que el tamaño inicial del pool es 2 | True | True|
+| 3 | Obtener una instancia de un objeto Reusable y que esta no sea nula| True | True|
+| 4 | Comprobar que el tamaño del pool ahora sea 1 | True | True |
+| 5 | Obtener una instancia de un objeto Reusable y que esta no sea nula| True | True|
+| 6 | Comprobar que el tamaño del pool ahora sea 0 | True | True |
+| 7 | Obtener otra instancia del objeto pool y que salte una excepción| - | - |
+| 8 | Capturar la excepción y comprobar que el mensaje sea el correcto | True | True|
+|
+
+### testReleaseReusable()
+| Paso | Descripción | Salida Esperada | Salida Actual |
+| :---: | :---: | :---: | :---: |
+| 1 |  Comprobar que el Pool no es nulo | True | True |
+| 2 | Comprobar que el tamaño inicial del pool es 2 | True | True|
+| 3 | Obtener una instancia de un objeto Reusable (r) y que esta no sea nula| True | True|
+| 4 | Comprobar que el tamaño del pool ahora sea 1 | True | True |
+| 5 | Liberar r | - | - |
+| 6 | Comprobar que el tamaño del pool ahora sea 2, esto implica que se a añadido correctamente | True | True |
+| 7 | Liberar otra vez el mismo objeto Reusable (r) y comprobar que se lanza la excepción correcta | True | True |
+|
+
+
 
 ## Preguntas
 
@@ -50,5 +90,6 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
    - Método testGetInstance del test ReusablePoolTest llevó 10 minutos.
 4. ¿Cuál es el número de fallos encontrados en el código?
 
-## Enlaces
+
+
 

@@ -28,7 +28,7 @@ public class ReusablePoolTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		pool = ReusablePool.getInstance();
+		//pool = ReusablePool.getInstance();
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class ReusablePoolTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
-		pool = null;
+		//pool = null;
 	}
 
 	/**
@@ -44,8 +44,11 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
+		/*
 		Assert.assertNotNull(pool);
 		Assert.assertEquals(pool, ReusablePool.getInstance());
+		*/
+		fail("Not yet implemented");
 	}
 
 	/**
@@ -53,6 +56,7 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testAcquireReusable() {
+		/**
 		Assert.assertNotNull(pool);
 		try {
 			Assert.assertEquals(2, pool.size());
@@ -65,7 +69,8 @@ public class ReusablePoolTest {
 		} catch (NotFreeInstanceException e) {
 			Assert.assertEquals("No hay más instancias reutilizables disponibles. Reintentalo más tarde", e.getMessage());
 		}
-		
+		*/
+		fail("Not yet implemented");
 	}
 
 	/**
@@ -73,6 +78,7 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testReleaseReusable() {
+		/*
 		try {
 			Assert.assertNotNull(pool);
 			Assert.assertEquals(2, pool.size());
@@ -86,6 +92,8 @@ public class ReusablePoolTest {
 		} catch (DuplicatedInstanceException e) {
 			Assert.assertEquals("Ya existe esa instancia en el pool.", e.getMessage());
 		}
+		*/
+		fail("Not yet implemented");
 	}
 
 }

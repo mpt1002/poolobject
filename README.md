@@ -49,6 +49,26 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 
 ### Especificación paso a paso de la prueba commit
 
+### setUp()
+
+| Paso | Pasos de la inicialización de los test |
+| :---: | :---: |
+| 1 | Obtener la instancia de ReusablePool con la que se va a trabajar |
+
+### tearDown()
+
+| Paso | Pasos de la finalización de los test |
+| :---: | :---: |
+| 1 | Resetear la instancia del Singleton de ReusablePool |
+
+###testGetInstance()
+
+| Paso | Descripción | Salida Esperada | Salida Actual |
+| :---: | :---: | :---: | :---: |
+| 1 | Comprobar que la instancia obtenida en el setUp no es null | True | True |
+| 2 | Obtener una instancia nueva de ReusablePool | - | - |
+| 3 | Comprobar que ambas instancias de ReusablePool son la misma | True | True |
+
 #### testAcquireReusable()
 
 | Paso | Descripción | Salida Esperada | Salida Actual |

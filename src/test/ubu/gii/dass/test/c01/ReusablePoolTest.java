@@ -53,7 +53,6 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testAcquireReusable() {
-		/**
 		Assert.assertNotNull(pool);
 		try {
 			Assert.assertEquals(2, pool.size());
@@ -66,8 +65,6 @@ public class ReusablePoolTest {
 		} catch (NotFreeInstanceException e) {
 			Assert.assertEquals("No hay más instancias reutilizables disponibles. Reintentalo más tarde", e.getMessage());
 		}
-		*/
-		fail("Not yet implemented");
 	}
 
 	/**

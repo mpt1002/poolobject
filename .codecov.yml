@@ -2,6 +2,3 @@ coverage:
   round: up
   range: 0..100
   precision: 3
-
-codecov:
-  token: dd716e1b-eddb-43f0-9621-ce2702cd978a

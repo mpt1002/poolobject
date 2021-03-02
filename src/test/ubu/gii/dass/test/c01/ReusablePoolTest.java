@@ -28,7 +28,7 @@ public class ReusablePoolTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
-		//pool = ReusablePool.getInstance();
+		pool = ReusablePool.getInstance();
 	}
 
 	/**
@@ -36,7 +36,7 @@ public class ReusablePoolTest {
 	 */
 	@After
 	public void tearDown() throws Exception {
-		//pool = null;
+		pool = null;
 	}
 
 	/**

@@ -5,4 +5,7 @@ after_success:
 env:
   global:
     - CODECOV_TOKEN=:dd716e1b-eddb-43f0-9621-ce2702cd978a
+
+before_script:
+  - sudo apt-get install ant-optional
     

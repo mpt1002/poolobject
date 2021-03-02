@@ -16,7 +16,7 @@ import ubu.gii.dass.c01.Reusable;
 import ubu.gii.dass.c01.ReusablePool;
 
 /**
- * @author alumno
+ * @author Marcos Romano Ibáñez y María Portugal Tomé
  *
  */
 public class ReusablePoolTest {
@@ -44,11 +44,8 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testGetInstance() {
-		/*
 		Assert.assertNotNull(pool);
 		Assert.assertEquals(pool, ReusablePool.getInstance());
-		*/
-		fail("Not yet implemented");
 	}
 
 	/**

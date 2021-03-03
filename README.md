@@ -34,7 +34,9 @@ Para la realización de esta practica se ha seguido el siguiente proceso:
 
 Como se demuestra en la siguiente ilustración se obtiene una covertura del 100% sobre la clase ReusablePool, así como en las dos excepciones (DuplicateInstanceException y NotFreeInstanceException) que se lanzan desde esta misma clase.
 
-![AltText](pics/coverage_27_02_2021.png "Covertura de las pruebas")
+#### Cobertura de las pruebas usando EclEmma
+
+![AltText](pics/coverage_27_02_2021.png "Covertura de las pruebas usando EclEmma")
 
 ## Especificación textual de la prueba commit
 
@@ -45,23 +47,24 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 |testGetInstance() | Determinar si se crea correctamente una instancia de un objeto Pool| - | - |
 |testAcquireReusable() | Comprobar que se obtiene una instancia de ReusablePool si se encuentra disponible, en caso contrario comprobar que se lanza la excepción| - | - |
 |testReleaseReusable() | Determinar si se libera correctamente una instancia Reusable y se añade al Pool, siempre y cuando esta no esté ya añadida, en este caso se comprueba que se lanza una excepción.| - | - |
-|
+
 
 ### Especificación paso a paso de la prueba commit
 
-### setUp()
+#### setUp()
 
 | Paso | Pasos de la inicialización de los test |
 | :---: | :---: |
 | 1 | Obtener la instancia de ReusablePool con la que se va a trabajar |
 
-### tearDown()
+#### tearDown()
 
 | Paso | Pasos de la finalización de los test |
 | :---: | :---: |
 | 1 | Resetear la instancia del Singleton de ReusablePool |
 
-###testGetInstance()
+
+#### testGetInstance()
 
 | Paso | Descripción | Salida Esperada | Salida Actual |
 | :---: | :---: | :---: | :---: |
@@ -81,9 +84,8 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 | 6 | Comprobar que el tamaño del pool ahora sea 0 | True | True |
 | 7 | Obtener otra instancia del objeto pool y que salte una excepción| - | - |
 | 8 | Capturar la excepción y comprobar que el mensaje sea el correcto | True | True|
-|
 
-### testReleaseReusable()
+#### testReleaseReusable()
 | Paso | Descripción | Salida Esperada | Salida Actual |
 | :---: | :---: | :---: | :---: |
 | 1 |  Comprobar que el Pool no es nulo | True | True |
@@ -93,7 +95,6 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 | 5 | Liberar r | - | - |
 | 6 | Comprobar que el tamaño del pool ahora sea 2, esto implica que se a añadido correctamente | True | True |
 | 7 | Liberar otra vez el mismo objeto Reusable (r) y comprobar que se lanza la excepción correcta | True | True |
-|
 
 
 
@@ -108,8 +109,8 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
    - Método setup del test ReusablePoolTest llevó 5 minutos.
    - Método tearDown del test ReusablePoolTest llevó 5 minutos.
    - Método testGetInstance del test ReusablePoolTest llevó 10 minutos.
+   - Método testAcquireReusable del test ReusablePoolTest llevó 15 minutos.
+   - Método testReleaseReusable del test ResusablePoolTest llevó 15 minutos.
 4. ¿Cuál es el número de fallos encontrados en el código?
-
-
-
-
+   - Inicialemente tuvimos problemas con la librería JUnit.
+   - Después tuvimos un problema con los tests relaciona con jacoco, lo cual se solucionó con la modificación del fichero `travis.yaml` introduciendo un conjunto de versiones de Java.

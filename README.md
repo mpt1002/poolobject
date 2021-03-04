@@ -30,11 +30,11 @@ Para la realización de esta practica se ha seguido el siguiente proceso:
 2. Evaluar las diferentes clases que componen el proyecto. 
 3. Empezar a realizar la integración de las pruebas.
 
-### Cobertura de las pruebas
+### Covertura de las pruebas
 
 Como se demuestra en la siguiente ilustración se obtiene una covertura del 100% sobre la clase ReusablePool, así como en las dos excepciones (DuplicateInstanceException y NotFreeInstanceException) que se lanzan desde esta misma clase.
 
-#### Cobertura de las pruebas usando EclEmma
+#### Covertura de las pruebas usando EclEmma
 
 ![AltText](pics/coverage_27_02_2021.png "Covertura de las pruebas usando EclEmma")
 

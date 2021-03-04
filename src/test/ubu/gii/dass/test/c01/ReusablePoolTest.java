@@ -21,7 +21,7 @@ import ubu.gii.dass.c01.ReusablePool;
  */
 public class ReusablePoolTest {
 	
-	ReusablePool pool;
+	private ReusablePool pool;
 
 	/**
 	 * @throws java.lang.Exception
@@ -46,6 +46,7 @@ public class ReusablePoolTest {
 	public void testGetInstance() {
 		Assert.assertNotNull(pool);
 		Assert.assertEquals(pool, ReusablePool.getInstance());
+		
 	}
 
 	/**
@@ -58,13 +59,19 @@ public class ReusablePoolTest {
 			Assert.assertEquals(2, pool.size());
 			Assert.assertNotNull(pool.acquireReusable());
 			Assert.assertEquals(1, pool.size());
-			Assert.assertNotNull(pool.acquireReusable());
-			Assert.assertEquals(0, pool.size());
+			Assert.assertNotNull(pool.acquireReusable());		
+		} catch (NotFreeInstanceException e) {
+			Assert.fail();
+		}
+		
+		try {
 			// Solo hay 2 instancias, por lo tanto en la tercera salta la excepción.
+			Assert.assertEquals(0, pool.size());
 			pool.acquireReusable();
 		} catch (NotFreeInstanceException e) {
 			Assert.assertEquals("No hay más instancias reutilizables disponibles. Reintentalo más tarde", e.getMessage());
 		}
+		
 	}
 
 	/**
@@ -72,16 +79,22 @@ public class ReusablePoolTest {
 	 */
 	@Test
 	public void testReleaseReusable() {
+		Reusable r = null;
 		try {
 			Assert.assertNotNull(pool);
 			Assert.assertEquals(2, pool.size());
-			Reusable r = pool.acquireReusable();
+			r = pool.acquireReusable();
 			Assert.assertEquals(1, pool.size());
-			pool.releaseReusable(r);
-			Assert.assertEquals(2, pool.size());
-			// Volver a meter el mismo reusable, debe saltar excepcion
-			pool.releaseReusable(r);
+			pool.releaseReusable(r);				
 		} catch (NotFreeInstanceException e) {
+			Assert.fail();
+		} catch (DuplicatedInstanceException e) {
+			Assert.fail();
+		}
+		try {
+			// Volver a meter el mismo reusable, debe saltar excepcion
+			Assert.assertEquals(2, pool.size());	
+			pool.releaseReusable(r);
 		} catch (DuplicatedInstanceException e) {
 			Assert.assertEquals("Ya existe esa instancia en el pool.", e.getMessage());
 		}

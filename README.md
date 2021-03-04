@@ -36,7 +36,7 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 
 #### Covertura de las pruebas usando EclEmma
 
-![AltText](pics/coverage_27_02_2021.png "Covertura de las pruebas usando EclEmma")
+![AltText](pics/coverage_coverage_04_03_2021.png "Covertura de las pruebas usando EclEmma")
 
 ## Especificación textual de la prueba commit
 
@@ -94,14 +94,16 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 | 4 | Comprobar que el tamaño del pool ahora sea 1 | True | True |
 | 5 | Liberar r | - | - |
 | 6 | Comprobar que el tamaño del pool ahora sea 2, esto implica que se a añadido correctamente | True | True |
-| 7 | Liberar otra vez el mismo objeto Reusable (r) y comprobar que se lanza la excepción correcta | True | True |
+| 7 | Liberar otra vez el mismo objeto Reusable (r) y comprobar que se lanza la excepción correcta | - | - |
 
 
 
 ## Preguntas
 
 1. ¿Se ha realizado trabajo en equipo?
-   - Si.
+   - Marcos: aprox 12.
+   - Maria: aprox 12.
+   - https://github.com/mpt1002/poolobject/pulse
 2. ¿Tiene calidad el conjunto de pruebas disponibles?
    - Se obtiene una covertura del 100% para el fichero ReusablePool.java. En consecuencia, todas las clases utilizadas en los test de ReusablePool tienen una cierta covertura en la misma proporción en la que participan en los test. Es por esto que, por ejemplo, las excepciones DuplicateIntanceException y NotFreeInstanceException tienen una covertura del 100%, pues se tratan de manera indirecta en el test, mientras que la clase Client tiene una covertura del 0%, pues no aparece en el test.
 3. ¿Cuál es el esfuerzo invertido en realizar la actividad?
@@ -114,3 +116,10 @@ Como se demuestra en la siguiente ilustración se obtiene una covertura del 100%
 4. ¿Cuál es el número de fallos encontrados en el código?
    - Inicialemente tuvimos problemas con la librería JUnit.
    - Después tuvimos un problema con los tests relaciona con jacoco, lo cual se solucionó con la modificación del fichero `travis.yaml` introduciendo un conjunto de versiones de Java.
+
+## Comentarios
+
+- Se ha añadido un método size en la clase ReusablePool para la mejora de la implementación de los test.
+  - size(): obtener el número de objetos Reusable que hay dentro de un pool.
+
+- Al no existir un método que resetee la instancia del singleton ReusablePool se han realizado los test teniendo en cuenta que el estado final de la pool del test anterior es el estado inicial de la pool del nuevo test.
